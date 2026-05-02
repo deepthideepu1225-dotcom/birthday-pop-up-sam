@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bujjii Surprise 🎂</title>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial;
+  background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  text-align:center;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  width:90%;
+  max-width:350px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+button{
+  padding:10px 20px;
+  margin-top:15px;
+  border:none;
+  border-radius:10px;
+  background:#ff4d6d;
+  color:white;
+  font-size:16px;
+}
+
+input{
+  padding:10px;
+  width:80%;
+  margin-top:10px;
+}
+
+.hidden{display:none;}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="page1">
+  <h2>🔐 Enter Passcode</h2>
+  <input type="password" id="pass">
+  <br>
+  <button onclick="checkPass()">Enter 💖</button>
+  <p id="error"></p>
+</div>
+
+<div class="card hidden" id="page2">
+  <h2>🎂 Blow the Candle 🕯️</h2>
+  <button onclick="next(3)">Blow 💨</button>
+</div>
+
+<div class="card hidden" id="page3">
+  <h2>🎉 Happy Birthday Bangaram ❤️❤️❤️❤️</h2>
+  <p>Love u na bujiiii 😘😘😘</p>
+  <button onclick="next(4)">Next ➡️</button>
+</div>
+
+<div class="card hidden" id="page4">
+  <p>Many more happy returns of the day bujjii 😘😘😘</p>
+  <p>Pedha ayipothunnav pelli eppud cheskuntav raaa 😂</p>
+  <p>Sambandhalu vethukko 😜</p>
+  <button onclick="next(5)">Next 🎁</button>
+</div>
+
+<div class="card hidden" id="page5">
+  <h3>Select your gift 🎁</h3>
+  <button onclick="gift(1)">Gift 1</button>
+  <button onclick="gift(2)">Gift 2</button>
+  <button onclick="gift(3)">Gift 3 😏</button>
+</div>
+
+<div class="card hidden" id="page6">
+  <p id="giftText"></p>
+  <button onclick="next(7)">Next ➡️</button>
+</div>
+
+<div class="card hidden" id="page7">
+  <h2>Inkaaa vundiii 😍</h2>
+  <button onclick="next(8)">Next ➡️</button>
+</div>
+
+<div class="card hidden" id="page8">
+  <h2>💍 Will you marry me?</h2>
+  <button onclick="yes()">Yes</button>
+  <button onclick="yes()">Yes</button>
+</div>
+
+<div class="card hidden" id="page9">
+  <h2>🎉 Hurrayyyyy 🎉</h2>
+  <p>Love u bujiii ❤️😘</p>
+</div>
+
+<script>
+
+function show(id){
+  document.querySelectorAll('.card').forEach(c=>c.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+}
+
+function checkPass(){
+  let val=document.getElementById("pass").value;
+  if(val==="2307"){
+    show("page2");
+  }else{
+    document.getElementById("error").innerText="Wrong 😜 gurthu chesko raaa bujii cheppindi kadhaaa 💀";
+  }
+}
+
+function next(num){
+  show("page"+num);
+}
+
+function gift(n){
+  let text="";
+  if(n===1){
+    text="Many more happy returns bujjiii ❤️❤️❤️\n10 months → 100 years avvali 💖\nLove u bangaram 💕";
+  }
+  else if(n===2){
+    text="Many more happy returns bujjiiii ❤️ my babyyy 😘\nI love u infinityyy 💖";
+  }
+  else{
+    text="3rd option kavala bujiii 😂 1st o 2nd o select cheskoka 😏";
+  }
+  document.getElementById("giftText").innerText=text;
+  show("page6");
+}
+
+function yes(){
+  show("page9");
+}
+
+</script>
+
+</body>
+</html>
